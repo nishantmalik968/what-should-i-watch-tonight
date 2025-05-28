@@ -1,37 +1,72 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # MovieDiscovery
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.19.
+MovieDiscovery is a web application built with Angular that allows users to discover movies, view details, and explore content interactively. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.19.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+##  Features
 
-## Code scaffolding
+- Search and discover movies using the TMDB API
+- View detailed information about each movie
+- Responsive and user-friendly UI
+- Built with Angular best practices
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+##  Setup & Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Clone the repository**  
+   ```bash
+   git clone <https://github.com/nishantmalik968/what-should-i-watch-tonight.git>
+   cd what-should-i-watch-tonight
+   ```
 
-## Running unit tests
+2. **Install dependencies**  
+   ```bash
+   npm install
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. **Run the development server**  
+   ```bash
+   ng serve
+   ```  
+   Navigate to `http://localhost:4200/`. The app will reload automatically when you change any source files.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+##  TMDB API Key Configuration
 
-## Further help
+This project uses the TMDB API for fetching movie data.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# what-should-i-watch-tonight
-Movie discovery app using Angular &amp; TMDB API
->>>>>>> 3aa1ad7e550154b4c86e2e6f82c7ef7c5173ab47
-=======
-# what-should-i-watch-tonight
-Movie discovery app using Angular &amp; TMDB API
->>>>>>> fcecb6e8c1c07985a9cbd2eb0cb447bdea56dd8a
+The API key is already set in the project inside the file:
+
+  ```ts
+  export const environment = {
+    production: false,
+    tmdbApiKey: 'YOUR_TMDB_API_KEY',
+    apiUrl: 'https://api.themoviedb.org/3'
+  };
+  ```
+
+---
+
+##  Running Tests & Code Coverage
+
+Run the unit tests and generate a coverage report:
+
+```bash
+ng test --code-coverage
+```
+
+The coverage report will be generated in the `coverage/` folder. Open `coverage/index.html` in your browser to view the report.
+
+---
+
+## Project Structure
+
+- `src/` – Main source code
+- `angular.json` – Angular CLI configuration
+- `package.json` – Project dependencies and scripts
+- `tsconfig*.json` – TypeScript configurations
+
+---
