@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # or '18' if needed
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -28,4 +28,4 @@ jobs:
         run: ng build --configuration=production --base-href=/what-should-i-watch-tonight/
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/movie-discovery/browser
+        run: npx angular-cli-ghpages --dir=dist/movie-discovery/browser --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/nishantmalik968/what-should-i-watch-tonight.git
