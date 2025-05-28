@@ -70,3 +70,20 @@ The coverage report will be generated in the `coverage/` folder. Open `coverage/
 - `tsconfig*.json` – TypeScript configurations
 
 ---
+
+## CI/CD Deployment
+
+This project uses **GitHub Actions** for continuous integration and deployment.  
+On every push to the `main` branch:
+
+- The Angular app is built using the production configuration
+- It is automatically deployed to GitHub Pages using `angular-cli-ghpages`
+
+You can find the workflow in `.github/workflows/deploy.yml`.
+
+---
+
+## Live Deployment
+
+ View the deployed application here:  
+ [https://nishantmalik968.github.io/what-should-i-watch-tonight/]
