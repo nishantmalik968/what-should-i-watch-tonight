@@ -21,8 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Clean dist folder
+        run: rm -rf dist
+
       - name: Build Angular app
-        run: npm run build -- --configuration=production --output-path=dist/movie-discovery
+        run: npm run build -- --configuration=production --project=movie-discovery
 
       - name: Deploy to GitHub Pages
         run: npx angular-cli-ghpages --dir=dist/movie-discovery
