@@ -25,7 +25,8 @@ jobs:
         run: rm -rf dist
 
       - name: Build Angular app
-        run: npm run build -- --configuration=production --project=movie-discovery
+        run: |
+          npm run build -- --configuration=production --base-href=/what-should-i-watch-tonight/ --output-path=dist/movie-discovery
 
       - name: Deploy to GitHub Pages
         run: npx angular-cli-ghpages --dir=dist/movie-discovery
