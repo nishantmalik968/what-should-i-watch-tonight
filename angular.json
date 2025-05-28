@@ -14,6 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/movie-discovery",
+            "baseHref": "/what-should-i-watch-tonight/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
