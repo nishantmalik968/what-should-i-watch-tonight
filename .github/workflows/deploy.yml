@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
@@ -28,4 +30,4 @@ jobs:
         run: ng build --configuration=production --base-href=/what-should-i-watch-tonight/
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/movie-discovery/browser --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/nishantmalik968/what-should-i-watch-tonight.git
+        run: npx angular-cli-ghpages --dir=dist/movie-discovery/browser --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/nishantmalik968/what-should-i-watch-tonight.git --no-silent
