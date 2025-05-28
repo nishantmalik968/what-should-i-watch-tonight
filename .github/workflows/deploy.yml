@@ -29,5 +29,10 @@ jobs:
       - name: Build Angular app
         run: ng build --configuration=production --base-href=/what-should-i-watch-tonight/
 
+      - name: Set Git identity
+        run: |
+          git config --global user.email "nishantmalik968@gmail.com"
+          git config --global user.name "Nishant Malik"
+
       - name: Deploy to GitHub Pages
         run: npx angular-cli-ghpages --dir=dist/movie-discovery/browser --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/nishantmalik968/what-should-i-watch-tonight.git --no-silent
