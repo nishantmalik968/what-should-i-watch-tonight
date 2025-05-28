@@ -1,0 +1,95 @@
+<div class="container text-center mt-4">
+
+  <div class="input-group mb-4">
+    <input [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange($event)" (keyup.enter)="onSearch()" type="text"
+      class="form-control" placeholder="Search movies or actors..." />
+    <button class="btn btn-primary" (click)="onSearch()">Search</button>
+  </div>
+
+
+  <div *ngIf="isSearching" class="text-center my-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+
+  <div *ngIf="!searchTerm.trim() && !isSearching" class="row justify-content-center mb-4">
+    <div class="col-12 col-md-4 mb-2" *ngFor="let mood of moods">
+      <button class="btn btn-outline-primary w-100" (click)="selectMood(mood)">
+        {{ mood }}
+      </button>
+    </div>
+  </div>
+
+
+  <div *ngIf="!searchTerm.trim() && selectedMood && !isSearching">
+    <h2 class="mb-3">Movies for "{{ selectedMood }}"</h2>
+    <div class="row">
+      <ng-container *ngFor="let movie of movies">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm">
+            <img *ngIf="movie.poster_path" class="card-img-top" [routerLink]="['/movie', movie.id]"
+              [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" [alt]="movie.title" />
+            <div class="card-body p-2">
+              <h6 class="card-title mb-1">{{ movie.title }}</h6>
+              <p class="mb-1 text-muted" style="font-size: 0.85rem;">
+                📅 {{ movie.release_date ? (movie.release_date | date: 'yyyy') : 'N/A' }}
+              </p>
+              <p class="mb-0" style="font-size: 0.85rem;">
+                ⭐ {{ movie.vote_average || 'N/A' }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+ 
+  <div *ngIf="searchTerm.trim() && !isSearching">
+
+    <div *ngIf="searchMoviesResults.length">
+      <h3 class="mb-3">Movie Results</h3>
+      <div class="row">
+        <ng-container *ngFor="let movie of searchMoviesResults">
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card h-100 shadow-sm">
+              <img *ngIf="movie.poster_path" class="card-img-top" [routerLink]="['/movie', movie.id]"
+                [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" [alt]="movie.title" />
+              <div class="card-body p-2">
+                <h6 class="card-title mb-1">{{ movie.title }}</h6>
+                <p class="mb-1 text-muted" style="font-size: 0.85rem;">
+                  📅 {{ movie.release_date ? (movie.release_date | date: 'yyyy') : 'N/A' }}
+                </p>
+                <p class="mb-0" style="font-size: 0.85rem;">
+                  ⭐ {{ movie.vote_average || 'N/A' }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+
+    <div *ngIf="searchPeopleResults.length" class="mt-4">
+      <h3 class="mb-3">Actor Results</h3>
+      <div class="row">
+        <ng-container *ngFor="let person of searchPeopleResults">
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 text-center">
+            <img class="rounded-circle mx-auto"
+              [src]="person.profile_path ? 'https://image.tmdb.org/t/p/w200/' + person.profile_path : 'assets/default-profile.jpg'"
+              [alt]="person.name" style="width: 100px; height: 100px; object-fit: cover;" />
+            <p class="mb-0" style="font-size: 0.9rem;">{{ person.name }}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+
+    <div *ngIf="hasSearched && !searchMoviesResults.length && !searchPeopleResults.length" class="alert alert-info">
+      No results found for "{{ searchTerm }}"
+    </div>
+  </div>
+</div>

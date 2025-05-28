@@ -1,0 +1,65 @@
+<div class="container mt-4" *ngIf="movieDetails">
+  <div class="mb-3">
+    <a 
+    [routerLink]="['/']" 
+    class="rounded-pill shadow"
+  >
+    Go to Home Page
+  </a>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movieDetails.poster_path" class="img-fluid rounded" />
+    </div>
+    <div class="col-md-8">
+      <h2>{{ movieDetails.title }}</h2>
+      <p><strong>Release:</strong> {{ movieDetails.release_date }}</p>
+      <p><strong>Runtime:</strong> {{ movieDetails.runtime }} min</p>
+      <p><strong>Genres:</strong> {{ genreNames }}</p>
+      <p>{{ movieDetails.overview }}</p>
+    </div>
+  </div>
+
+  <div class="row mt-5" *ngIf="trailerUrl">
+    <div class="col-12">
+      <h4>Trailer</h4>
+      <div class="ratio ratio-16x9">
+        <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(trailerUrl)" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h4>Cast</h4>
+      <ng-container *ngFor="let member of cast">
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 text-center">
+            <img class="rounded-circle mx-auto"
+              [src]="member.profile_path ? 'https://image.tmdb.org/t/p/w200/' + member.profile_path : 'assets/default-profile.jpg'"
+              [alt]="member.name" style="width: 100px; height: 100px; object-fit: cover;" />
+            <p class="mb-0" style="font-size: 0.9rem;">{{ member.name }}</p>
+          </div>
+        </ng-container>
+  </div>
+
+  <div class="row mt-5">
+<h4>Similar Movies</h4>
+  <ng-container *ngFor="let sm of similarMovies">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm">
+             <img [src]="'https://image.tmdb.org/t/p/w200' + sm.poster_path" class="card-img-top" />
+            <div class="card-body p-2">
+            <p class="card-text small">{{ sm.title }}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+  </div>
+  <div class="mb-3">
+    <a 
+    [routerLink]="['/']" 
+    class="rounded-pill shadow"
+  >
+    Go to Home Page
+  </a>
+  </div>
+</div>
