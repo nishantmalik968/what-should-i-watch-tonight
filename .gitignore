@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
@@ -42,6 +43,8 @@ testem.log
 .DS_Store
 Thumbs.db
 =======
+=======
+>>>>>>> fcecb6e8c1c07985a9cbd2eb0cb447bdea56dd8a
 # Logs
 logs
 *.log
@@ -178,4 +181,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+<<<<<<< HEAD
 >>>>>>> 3aa1ad7e550154b4c86e2e6f82c7ef7c5173ab47
+=======
+>>>>>>> fcecb6e8c1c07985a9cbd2eb0cb447bdea56dd8a

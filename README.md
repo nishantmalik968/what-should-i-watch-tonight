@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # MovieDiscovery
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.19.
@@ -30,3 +31,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 # what-should-i-watch-tonight
 Movie discovery app using Angular &amp; TMDB API
 >>>>>>> 3aa1ad7e550154b4c86e2e6f82c7ef7c5173ab47
+=======
+# what-should-i-watch-tonight
+Movie discovery app using Angular &amp; TMDB API
+>>>>>>> fcecb6e8c1c07985a9cbd2eb0cb447bdea56dd8a
